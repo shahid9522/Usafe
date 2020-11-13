@@ -1,1 +1,1 @@
-# Clone the repo and run locally. All three pages designed and completed.
+# Clone the repo and run locally. All three pages are designed and completed.
