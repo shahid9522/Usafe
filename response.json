@@ -1,0 +1,27 @@
+{
+    "starting_point": "",
+    "destination": "",
+    "date": "",
+    "time": "",
+    "results": {
+        "recommendation": {
+            "ubahn": "",
+            "start_time": "",
+            "end_time": "",
+            "crowd_level": ""
+        },
+        "other1": {
+            "ubahn": "",
+            "start_time": "",
+            "end_time": "",
+            "crowd_level": ""
+        },
+        "other2": {
+            "ubahn": "",
+            "start_time": "",
+            "end_time": "",
+            "crowd_level": ""
+        }
+
+    }
+}
