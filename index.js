@@ -18,12 +18,19 @@ function popPageCustom() {
 }
 
 function getResponse() {
-  // Sending data to server
+  d = new Date(document.getElementById("date").value);
+  dt = d.getDate();
+  mn = d.getMonth();
+  mn++;
+  yy = d.getFullYear();
+  formatedDate = dt + "/" + mn + "/" + yy;
+
+    // Sending data to server
   let sendData = {
     starting_point: $("#starting-point").val(),
     destination: $("#ending-point").val(),
     time: $("#time").val(),
-    date: $("#date").val(),
+    date: formatedDate,
   };
 
   // let sendData = {
