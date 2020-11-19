@@ -1,171 +1,152 @@
 body {
-    background-color: #00549B !important;
-    margin: 12px;
-    padding: 12px;
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 21px;
-    letter-spacing: 0.005em;
-    text-align: left;
-
+  background-color: #00549b !important;
+  margin: 12px;
+  padding: 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0.005em;
+  text-align: left;
 }
 
 .page__background {
-    background-color: #00549B !important;
-
+  background-color: #00549b !important;
 }
 
 h1,
 h2,
 h5 {
-    color: #fff;
+  color: #fff;
 }
 
 .time {
-    margin-top: -4px !important;
-
+  margin-top: -4px !important;
 }
 
 .rec {
-
-    margin-top: 16px !important;
-
-
+  margin-top: 16px !important;
 }
 
 .vertical-center-screen-1 {
-
-    margin-top: 25vh !important;
+  margin-top: 25vh !important;
 }
 
 .p-r-42 {
-
-    padding-right: 42px !important;
-
+  padding-right: 42px !important;
 }
 
 .p-r-26 {
-
-    padding-right: 26px !important;
+  padding-right: 26px !important;
 }
 
 .p-r-19 {
-
-    padding-right: 19px !important;
-
+  padding-right: 19px !important;
 }
 
 .m-t-26 {
-
-    margin-top: 26px !important;
-
+  margin-top: 26px !important;
 }
 
 .btn-bg,
 .btn-bg:active,
 .btn-bg:focus {
-    background-color: #C5D568 !important;
-    color: #2F2F2F !important;
-    border: 0 !important;
+  background-color: #c5d568 !important;
+  color: #2f2f2f !important;
+  border: 0 !important;
 }
 
 .input-group-text,
 .custom-select,
 .border-none {
-    background-color: #fff;
-    border-top: 0px;
-    border-left: 0px;
-    border-bottom: 0px;
+  background-color: #fff;
+  border-top: 0px;
+  border-left: 0px;
+  border-bottom: 0px;
 }
 
 .font-weight-bold-custom {
-    font-weight: 500 !important;
+  font-weight: 500 !important;
 }
 
 .icon-white {
-    color: #fff;
-
+  color: #fff;
 }
 
 .card-custom-margin {
-
-    margin-left: 1px !important;
-    margin-right: 4px !important;
-    padding: 2px !important;
+  margin-left: 1px !important;
+  margin-right: 4px !important;
+  padding: 2px !important;
 }
 
 .card-start-time {
-    font-size: 28px !important;
-    font-weight: 400 !important;
-    color: #000 !important;
-    margin-left: 12px !important;
-
+  font-size: 28px !important;
+  font-weight: 400 !important;
+  color: #000 !important;
+  margin-left: 12px !important;
 }
 
 .icon-size {
-
-    font-size: 20px
+  font-size: 20px;
 }
 
 .arrival-time {
-    font-size: 20px !important;
+  font-size: 20px !important;
 }
 
 .crowd-bar {
-    padding: 12px;
-    background-color: #C9F0E7;
-    text-align: center;
-    margin-top: 16px;
-    color: #00A17B;
-
+  padding: 12px;
+  text-align: center;
+  margin-top: 16px;
 }
 
 .others-margin {
-
-    margin-top: 16px !important
+  margin-top: 16px !important;
 }
 
 .crowd-icon-margin {
-    margin-left: -20px;
-    margin-right: 6px;
+  margin-left: -20px;
+  margin-right: 6px;
+}
+
+.crowd-bar-low {
+  color: #00a17b !important;
+  background-color: #c9f0e7 !important;
 }
 
 .crowd-bar-high {
+  background-color: #fbdee0 !important;
+  color: #eb5863 !important;
+}
 
-    background-color: #FBDEE0 !important;
-    ;
-    color: #EB5863 !important;
-    ;
-
+.crowd-bar-medium {
+  background-color: #ffaa0b59 !important;
+  color: #b37503 !important;
 }
 
 .card-title-journey {
-    font-size: 20px;
-    margin-bottom: 24px;
-    font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 24px;
+  font-weight: 500;
 }
 
 .margin-bottom {
-    margin-bottom: 32px;
-
+  margin-bottom: 32px;
 }
 
 .bar-font {
-    font-size: 14px;
-
+  font-size: 14px;
 }
 
 .button-notify {
-    font-size: 14px;
-
+  font-size: 14px;
 }
 
 .button-start {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 #start-journey-button {
-    padding: 16px;
+  padding: 16px;
 }
