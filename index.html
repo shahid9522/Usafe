@@ -111,9 +111,17 @@
               <div class="input-group input-group-lg mb-3">
                 <div class="input-group-prepend">
                   <span
+                    class="input-group-text p-r-19 active"
+                    id="leave-at"
+                    onclick="activeTimeOption('leave-at')"
+                    >Leave at</span
+                  >
+
+                  <span
                     class="input-group-text p-r-19"
-                    id="inputGroup-sizing-default"
-                    >Time</span
+                    id="arrive-by"
+                    onclick="activeTimeOption('arrive-by')"
+                    >Arrive By</span
                   >
                 </div>
                 <input
@@ -155,7 +163,9 @@
               <h1 id="start-end"></h1>
             </div>
             <div class="col-12">
-              <h2 class="time">Arrive by <span id="arrival-time"></span></h2>
+              <h2 class="time">
+                <span id="time-toggle"></span><span id="arrival-time"></span>
+              </h2>
             </div>
             <div class="col-12">
               <h5 class="rec">Our recommendation</h5>

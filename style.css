@@ -150,3 +150,10 @@ h5 {
 #start-journey-button {
   padding: 16px;
 }
+
+.active{
+background-color: #00549b;
+border:1px solid #fff;
+color: #fff;
+
+}

@@ -1,6 +1,7 @@
 const REST_API_URL = "https://real-awesome-backend.herokuapp.com";
 let currentPage = null;
 let receivedData = null;
+let arrivalTime = false;
 
 // Initialization code
 document.addEventListener("init", function (event) {
@@ -17,20 +18,23 @@ function popPageCustom() {
   document.querySelector("#myNavigator").popPage();
 }
 
-function getResponse() {
-  d = new Date(document.getElementById("date").value);
+function setDate(date) {
+  d = new Date(date);
   dt = d.getDate();
   mn = d.getMonth();
   mn++;
   yy = d.getFullYear();
-  formatedDate = dt + "/" + mn + "/" + yy;
+  return dt + "/" + mn + "/" + yy;
+}
 
-    // Sending data to server
+function getResponse() {
+  //Sending data to server
   let sendData = {
     starting_point: $("#starting-point").val(),
     destination: $("#ending-point").val(),
     time: $("#time").val(),
-    date: formatedDate,
+    date: setDate($("#date").val()),
+    arrival_time: arrivalTime,
   };
 
   // let sendData = {
@@ -38,9 +42,16 @@ function getResponse() {
   //   destination: "Münchner Freiheit",
   //   time: "09:35",
   //   date: "05/05/2020",
+  //   arrival_time: arrivalTime,
   // };
 
-  if (isEmpty(sendData)) {
+  if (!isEmpty(sendData)) {
+    ons.notification.alert("All fields are mandatory!");
+  } else if (sendData.starting_point == sendData.destination) {
+    ons.notification.alert(
+      "Starting point and Destination should not be same!"
+    );
+  } else {
     $.ajax({
       type: "POST",
       url: `${REST_API_URL}/query`,
@@ -65,8 +76,6 @@ function getResponse() {
         ons.notification.alert("Something went wrong!");
         console.log(error.responseText);
       });
-  } else {
-    ons.notification.alert("All fields are mandatory!");
   }
 }
 
@@ -100,6 +109,13 @@ function setContentOnScreenTwo(receivedData) {
 
   //Setting  info
   $("#rec-crowd-level").html(`<b>${cardInfo.recommendation.crowd_level}</b>`);
+
+  //Setting Arrive/Leave Title
+  if (arrivalTime) {
+    $("#time-toggle").text("Arrive by ");
+  } else {
+    $("#time-toggle").text("Leave at ");
+  }
 
   setContentOnScreenTwoForOtherOptions(cardInfo);
 
@@ -193,4 +209,14 @@ function navigateToScreen3(key) {
       //Setting  -screen3 info
       $("#crowd-level-screen3").html(`<b>${cardInfo.crowd_level}</b>`);
     });
+}
+
+function activeTimeOption(param) {
+  $(".active").removeClass("active");
+  $(`#${param}`).addClass("active");
+  if (param == "leave-at") {
+    arrivalTime = false;
+  } else {
+    arrivalTime = true;
+  }
 }
