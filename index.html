@@ -312,7 +312,7 @@
               </h2>
             </div>
 
-            <div class="col-12">
+            <div class="col-12" onclick="setFavoriteRoute('fav')">
               <div class="card card-custom-margin">
                 <div class="card-body">
                   <div class="d-inline">
@@ -355,11 +355,11 @@
             <div class="col-12 m-t-26">
               <h1>Upcoming Commute</h1>
             </div>
-            <div class="col-12">
+            <div class="col-12" >
               <h2 class="favorite-screen1-subtitle">Your next planned route</h2>
             </div>
 
-            <div class="col-12">
+            <div class="col-12" onclick="setFavoriteRoute('commute')">
               <div class="card card-custom-margin">
                 <div class="card-body">
                   <div class="d-inline">
@@ -405,16 +405,16 @@
 
     <div id="fixme" class="col-12">
       <div class="row text-center">
-        <div id="favorite" class="col-6" onclick="pushPage('planner')">
+        <div
+          id="favorite"
+          class="col-6 "
+          onclick="pushPage('planner')"
+        >
           <ons-icon class="toolbar-favorite" icon="fa-heart"></ons-icon>
 
           <div class="m-t-8">Favorite</div>
         </div>
-        <div
-          id="planner"
-          class="col-6 inactive-tabmenu"
-          onclick="pushPage('favorite')"
-        >
+        <div id="planner" class="col-6 inactive-tabmenu" onclick="pushPage('favorite')">
           <ons-icon class="toolbar-favorite" icon="fa-train"></ons-icon>
           <div class="m-t-8">Planner</div>
         </div>
