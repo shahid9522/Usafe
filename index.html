@@ -29,8 +29,9 @@
       id="myNavigator"
       page="page1.html"
     ></ons-navigator>
-    <template id="page1.html">
-      <ons-page id="page1">
+
+    <template id="page4.html">
+      <ons-page id="page4">
         <div class="container vertical-center-screen-1">
           <div class="row">
             <div class="col-12">
@@ -104,6 +105,7 @@
                   class="form-control border-none"
                   aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-default"
+                  onclick="disablePastDates()"
                 />
               </div>
             </div>
@@ -148,7 +150,7 @@
     </template>
     <template id="page2.html">
       <ons-page id="page2">
-        <div class="container">
+        <div class="container p-b-50">
           <div class="row">
             <div class="col-1">
               <h1>
@@ -211,7 +213,7 @@
               </div>
             </div>
 
-            <div id="other-options-card" class="col-12 others-margin">
+            <div id="other-options-card" class="col-12 others-margin hello-1">
               <h5 class="rec">Other options for this route</h5>
             </div>
           </div>
@@ -270,45 +272,154 @@
                     <span class="arrival-time" id="end-time-screen3"></span>
                   </div>
 
-                  <div class="col-12 crowd-bar crowd-bar-low margin-bottom">
+                  <div class="col-12 crowd-bar margin-bottom crowd-bar-dynamic">
                     <div class="bar-font">
                       Your train will have
                       <span id="crowd-level-screen3"></span> crowd on your route
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-                  <!-- <div class="col-12 crowd-bar crowd-bar-low">
-                    <div class="bar-font">
-                      <span> <b> 456 </b></span> people sanitised their hands at
-                      Garching
-                    </div>
+          <div class="col-12 m-t-26">
+            <button
+              id="start-journey-button"
+              type="button"
+              class="btn btn-primary btn-lg btn-block btn-bg"
+            >
+              <div class="button-start">Start my trip</div>
+              <div class="button-notify">
+                (You’ll get notified when it’s time to leave)
+              </div>
+            </button>
+          </div>
+        </div>
+      </ons-page>
+    </template>
+
+    <template id="page1.html">
+      <ons-page id="page1">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 m-t-8">
+              <h1>My favorite routes</h1>
+            </div>
+            <div class="col-12">
+              <h2 class="favorite-screen1-subtitle">
+                A list of the routes that you take most
+              </h2>
+            </div>
+
+            <div class="col-12">
+              <div class="card card-custom-margin">
+                <div class="card-body">
+                  <div class="d-inline">
+                    <svg
+                      width="29"
+                      height="29"
+                      viewBox="0 0 29 29"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect width="29" height="18" fill="#005AA3" />
+                      <path
+                        d="M12.4801 3.09091V10.2074C12.4801 11.8054 11.3828 12.956 9.56108 12.956C7.73935 12.956 6.64205 11.8054 6.64205 10.2074V3.09091H5.32102V10.3139C5.32102 12.5511 6.99361 14.1918 9.56108 14.1918C12.1286 14.1918 13.8011 12.5511 13.8011 10.3139V3.09091H12.4801ZM19.9446 14.1491C22.1498 14.1758 23.5881 12.5138 23.5881 10.4844C23.5881 8.375 22.0273 6.86222 20.1577 6.86222C19.0337 6.86222 18.0696 7.41087 17.473 8.31108H17.3878C17.3931 5.63175 18.4265 4.09233 20.115 4.09233C21.2656 4.09233 21.9581 4.81676 22.2031 5.81818H23.5028C23.2365 4.10298 21.9474 2.92045 20.115 2.92045C17.6594 2.92045 16.152 5.09375 16.152 8.97159C16.152 13.0039 18.1548 14.1278 19.9446 14.1491ZM19.9446 12.9773C18.5756 12.9773 17.5742 11.8107 17.5795 10.5057C17.5849 9.20064 18.6342 8.03409 19.9872 8.03409C21.3242 8.03409 22.3096 9.13139 22.3096 10.4844C22.3096 11.8693 21.2816 12.9773 19.9446 12.9773Z"
+                        fill="white"
+                      />
+                    </svg>
                   </div>
+
+                  <div class="d-inline">
+                    <span class="card-start-time d-inline">Garching</span>
+                    <span>
+                      <ons-icon
+                        class="icon-size"
+                        icon="md-arrow-right"
+                      ></ons-icon>
+                    </span>
+                    <span class="arrival-time">Westpark</span>
+                  </div>
+                  <div class="col-12 arrival-time-screen3">
+                    Arrive by 9:00 pm
+                  </div>
+
                   <div class="col-12 crowd-bar crowd-bar-low">
-                    <div class="bar-font">
-                      <span> <b> No data </b></span> available for
-                      <span> <b> Westpark station </b></span>
-                    </div> -->
+                    <span>Crowd on the route: low</span>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="col-12 m-t-26">
-              <button
-                id="start-journey-button"
-                type="button"
-                class="btn btn-primary btn-lg btn-block btn-bg"
-              >
-                <div class="button-start">Start my trip</div>
-                <div class="button-notify">
-                  (You’ll get notified when it’s time to leave)
+              <h1>Upcoming Commute</h1>
+            </div>
+            <div class="col-12">
+              <h2 class="favorite-screen1-subtitle">Your next planned route</h2>
+            </div>
+
+            <div class="col-12">
+              <div class="card card-custom-margin">
+                <div class="card-body">
+                  <div class="d-inline">
+                    <svg
+                      width="29"
+                      height="29"
+                      viewBox="0 0 29 29"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect width="29" height="18" fill="#005AA3" />
+                      <path
+                        d="M12.4801 3.09091V10.2074C12.4801 11.8054 11.3828 12.956 9.56108 12.956C7.73935 12.956 6.64205 11.8054 6.64205 10.2074V3.09091H5.32102V10.3139C5.32102 12.5511 6.99361 14.1918 9.56108 14.1918C12.1286 14.1918 13.8011 12.5511 13.8011 10.3139V3.09091H12.4801ZM19.9446 14.1491C22.1498 14.1758 23.5881 12.5138 23.5881 10.4844C23.5881 8.375 22.0273 6.86222 20.1577 6.86222C19.0337 6.86222 18.0696 7.41087 17.473 8.31108H17.3878C17.3931 5.63175 18.4265 4.09233 20.115 4.09233C21.2656 4.09233 21.9581 4.81676 22.2031 5.81818H23.5028C23.2365 4.10298 21.9474 2.92045 20.115 2.92045C17.6594 2.92045 16.152 5.09375 16.152 8.97159C16.152 13.0039 18.1548 14.1278 19.9446 14.1491ZM19.9446 12.9773C18.5756 12.9773 17.5742 11.8107 17.5795 10.5057C17.5849 9.20064 18.6342 8.03409 19.9872 8.03409C21.3242 8.03409 22.3096 9.13139 22.3096 10.4844C22.3096 11.8693 21.2816 12.9773 19.9446 12.9773Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </div>
+
+                  <div class="d-inline">
+                    <span class="card-start-time d-inline">Westpark</span>
+                    <span>
+                      <ons-icon
+                        class="icon-size"
+                        icon="md-arrow-right"
+                      ></ons-icon>
+                    </span>
+                    <span class="arrival-time">Garching</span>
+                  </div>
+                  <div class="col-12 arrival-time-screen3">
+                    Leave at 4:00 pm
+                  </div>
+
+                  <div class="col-12 crowd-bar crowd-bar-low">
+                    <span>Crowd on the route: low</span>
+                  </div>
                 </div>
-              </button>
+              </div>
             </div>
           </div>
         </div>
       </ons-page>
     </template>
+
+    <div id="fixme" class="col-12">
+      <div class="row text-center">
+        <div
+          id="favorite"
+          class="col-6 inactive-tabmenu"
+          onclick="pushPage('favorite')"
+        >
+          <ons-icon class="toolbar-favorite" icon="fa-heart"></ons-icon>
+
+          <div class="m-t-8">Favorite</div>
+        </div>
+        <div id="planner" class="col-6" onclick="pushPage('planner')">
+          <ons-icon class="toolbar-favorite" icon="fa-train"></ons-icon>
+          <div class="m-t-8">Planner</div>
+        </div>
+      </div>
+    </div>
   </body>
   <!-- OnsenUI -->
   <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>

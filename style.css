@@ -49,6 +49,10 @@ h5 {
   margin-top: 26px !important;
 }
 
+.m-t-8 {
+  margin-top: 8px !important;
+}
+
 .btn-bg,
 .btn-bg:active,
 .btn-bg:focus {
@@ -151,9 +155,47 @@ h5 {
   padding: 16px;
 }
 
-.active{
-background-color: #00549b;
-border:1px solid #fff;
-color: #fff;
+.active {
+  background-color: #00549b;
+  border: 1px solid #fff;
+  color: #fff;
+}
 
+.favorite-screen1-subtitle {
+  font-size: 18px !important;
+  margin-top: -0.75rem !important;
+}
+
+.arrival-time-screen3 {
+  margin-top: 5px;
+  margin-left: -18px;
+  margin-bottom: 18px;
+}
+
+#fixme {
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+  left: 0;
+  background: #fff;
+  color: #000;
+  padding: 16px;
+  clear: both;
+}
+
+.toolbar-favorite {
+  font-size: 28px;
+  color: #00549b;
+}
+
+.m-t-8 {
+  margin-top: 8px;
+}
+
+.inactive-tabmenu {
+  opacity: 0.5;
+}
+
+.p-b-50 {
+  padding-bottom: 100px !important;
 }

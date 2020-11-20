@@ -7,7 +7,7 @@ let arrivalTime = false;
 document.addEventListener("init", function (event) {
   var currentPage = event.target;
 
-  if (currentPage.id == "page1") {
+  if (currentPage.id == "page4") {
     currentPage.querySelector("#push-button").onclick = function () {
       getResponse();
     };
@@ -69,7 +69,7 @@ function getResponse() {
           });
 
         //Receiving data from server
-        console.log(receivedData);
+        //console.log(receivedData);
       })
       .catch((error) => {
         //Got error from server
@@ -118,8 +118,6 @@ function setContentOnScreenTwo(receivedData) {
   }
 
   setContentOnScreenTwoForOtherOptions(cardInfo);
-
-  console.log(receivedData);
 }
 
 function setContentOnScreenTwoForOtherOptions(cardInfo) {
@@ -208,6 +206,8 @@ function navigateToScreen3(key) {
 
       //Setting  -screen3 info
       $("#crowd-level-screen3").html(`<b>${cardInfo.crowd_level}</b>`);
+
+      $(".crowd-bar-dynamic").addClass(`crowd-bar-${cardInfo.crowd_level}`);
     });
 }
 
@@ -219,4 +219,18 @@ function activeTimeOption(param) {
   } else {
     arrivalTime = true;
   }
+}
+
+function pushPage(param) {
+  $(".inactive-tabmenu").removeClass("inactive-tabmenu");
+  $(`#${param}`).addClass("inactive-tabmenu");
+
+  document
+    .querySelector("#myNavigator")
+    .pushPage(`page${param == "favorite" ? "1" : "4"}.html`);
+}
+
+function disablePastDates() {
+  let today = new Date().toISOString().split("T")[0];
+  $("#date").attr("min", today);
 }
