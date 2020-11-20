@@ -72,6 +72,8 @@ function getResponse() {
           .querySelector("#myNavigator")
           .pushPage("page2.html")
           .then(() => {
+            console.log(receivedData)
+
             setContentOnScreenTwo(receivedData);
           });
 
@@ -97,31 +99,31 @@ function isEmpty(sendData) {
 
 function setContentOnScreenTwo(receivedData) {
   //Setting route info
-  $("#start-end").text(
+  $("h1#start-end").text(
     `${receivedData.starting_point} - ${receivedData.destination} `
   );
   //Setting arrival time info
-  $("#arrival-time").html(`<b>${receivedData.time.slice(0, -3)}</b>`);
+  $("span#arrival-time").html(`<b>${receivedData.time.slice(0, -3)}</b>`);
 
   //Replacing "receivedData.results" with "cardInfo"
   let cardInfo = receivedData.results;
 
   //Setting rec start time info
-  $("#rec-start-time").text(
+  $("span#rec-start-time").text(
     `${cardInfo.recommendation.start_time.slice(0, -3)}`
   );
 
   //Setting rec end time info
-  $("#rec-end-time").text(`${cardInfo.recommendation.end_time.slice(0, -3)}`);
+  $("span#rec-end-time").text(`${cardInfo.recommendation.end_time.slice(0, -3)}`);
 
   //Setting  info
-  $("#rec-crowd-level").html(`<b>${cardInfo.recommendation.crowd_level}</b>`);
+  $("span#rec-crowd-level").html(`<b>${cardInfo.recommendation.crowd_level}</b>`);
 
   //Setting Arrive/Leave Title
   if (arrivalTime) {
-    $("#time-toggle").text("Arrive by ");
+    $("span#time-toggle").text("Arrive by ");
   } else {
-    $("#time-toggle").text("Leave at ");
+    $("span#time-toggle").text("Leave at ");
   }
 
   setContentOnScreenTwoForOtherOptions(cardInfo);
@@ -145,7 +147,7 @@ function setContentOnScreenTwoForOtherOptionsDynamically(cardInfo, keys) {
     finalHtmlResponse += prepareHTML(cardInfo[key], key);
   });
 
-  $(finalHtmlResponse).insertAfter("#other-options-card");
+  $(finalHtmlResponse).insertAfter("div#other-options-card");
 }
 
 function prepareHTML(othersData, key) {
@@ -201,20 +203,20 @@ function navigateToScreen3(key) {
       let cardInfo = receivedData.results[key];
 
       //Setting route info
-      $("#start-end-screen3").text(
+      $("div#start-end-screen3").text(
         `${receivedData.starting_point} - ${receivedData.destination} `
       );
 
       //Setting screen3 start time info
-      $("#start-time-screen3").text(`${cardInfo.start_time.slice(0, -3)}`);
+      $("span#start-time-screen3").text(`${cardInfo.start_time.slice(0, -3)}`);
 
       //Setting screen3 end time info
-      $("#end-time-screen3").text(`${cardInfo.end_time.slice(0, -3)}`);
+      $("span#end-time-screen3").text(`${cardInfo.end_time.slice(0, -3)}`);
 
       //Setting  -screen3 info
-      $("#crowd-level-screen3").html(`<b>${cardInfo.crowd_level}</b>`);
+      $("span#crowd-level-screen3").html(`<b>${cardInfo.crowd_level}</b>`);
 
-      $(".crowd-bar-dynamic").addClass(`crowd-bar-${cardInfo.crowd_level}`);
+      $("div.crowd-bar-dynamic").addClass(`crowd-bar-${cardInfo.crowd_level}`);
     });
 }
 
@@ -229,11 +231,14 @@ function activeTimeOption(param) {
 }
 
 function pushPage(param) {
-  tabmenuToggle(param);
-
-  document
-    .querySelector("#myNavigator")
-    .pushPage(`page${param == "favorite" ? "4" : "1"}.html`);
+  if ($(".inactive-tabmenu").attr("id") != param) {
+    document
+      .querySelector("#myNavigator")
+      .pushPage(`page${param == "favorite" ? "4" : "1"}.html`)
+      .then(() => {
+        tabmenuToggle(param);
+      });
+  }
 }
 
 function disablePastDates() {
