@@ -3,6 +3,13 @@ let currentPage = null;
 let receivedData = null;
 let arrivalTime = false;
 
+const FAVORITE_ROUTE = {
+  starting_point: "Garching",
+  destination: "Westpark",
+  time_fav: "09:00",
+  time_commute: "04:00",
+};
+
 // Initialization code
 document.addEventListener("init", function (event) {
   var currentPage = event.target;
@@ -32,9 +39,9 @@ function getResponse() {
   let sendData = {
     starting_point: $("#starting-point").val(),
     destination: $("#ending-point").val(),
-    time: $("#time").val(),
+    time: `${$("#time").val()}:00`,
     date: setDate($("#date").val()),
-    arrival_time: arrivalTime,
+    arrive_by: arrivalTime,
   };
 
   // let sendData = {
@@ -94,7 +101,7 @@ function setContentOnScreenTwo(receivedData) {
     `${receivedData.starting_point} - ${receivedData.destination} `
   );
   //Setting arrival time info
-  $("#arrival-time").html(`<b>${receivedData.time}</b>`);
+  $("#arrival-time").html(`<b>${receivedData.time.slice(0, -3)}</b>`);
 
   //Replacing "receivedData.results" with "cardInfo"
   let cardInfo = receivedData.results;
@@ -213,7 +220,7 @@ function navigateToScreen3(key) {
 
 function activeTimeOption(param) {
   $(".active").removeClass("active");
-  $(`#${param}`).addClass("active");
+  $(`.input-group-prepend > #${param}`).addClass("active");
   if (param == "leave-at") {
     arrivalTime = false;
   } else {
@@ -222,8 +229,7 @@ function activeTimeOption(param) {
 }
 
 function pushPage(param) {
-  $(".inactive-tabmenu").removeClass("inactive-tabmenu");
-  $(`#${param}`).addClass("inactive-tabmenu");
+  tabmenuToggle(param);
 
   document
     .querySelector("#myNavigator")
@@ -232,5 +238,42 @@ function pushPage(param) {
 
 function disablePastDates() {
   let today = new Date().toISOString().split("T")[0];
-  $("#date").attr("min", today);
+  $("input#date").attr("min", today);
+}
+
+function setFavoriteRoute(param) {
+  tabmenuToggle("favorite");
+  document
+    .querySelector("#myNavigator")
+    .pushPage(`page4.html`)
+    .then(() => {
+      $("select#starting-point").val(
+        param == "commute"
+          ? FAVORITE_ROUTE.destination
+          : FAVORITE_ROUTE.starting_point
+      );
+      $("select#ending-point").val(
+        param == "commute"
+          ? FAVORITE_ROUTE.starting_point
+          : FAVORITE_ROUTE.destination
+      );
+      $("input#time").val(
+        param == "commute"
+          ? FAVORITE_ROUTE.time_commute
+          : FAVORITE_ROUTE.time_fav
+      );
+      param == "commute"
+        ? activeTimeOption("leave-at")
+        : activeTimeOption("arrive-by");
+      $("input#date").val(todayDate());
+    });
+}
+
+function todayDate() {
+  return new Date().toJSON().slice(0, 10).replace(/-/g, "-").toString();
+}
+
+function tabmenuToggle(param) {
+  $(".inactive-tabmenu").removeClass("inactive-tabmenu");
+  $(`#${param}`).addClass("inactive-tabmenu");
 }
