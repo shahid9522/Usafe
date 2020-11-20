@@ -227,7 +227,7 @@ function pushPage(param) {
 
   document
     .querySelector("#myNavigator")
-    .pushPage(`page${param == "favorite" ? "1" : "4"}.html`);
+    .pushPage(`page${param == "favorite" ? "4" : "1"}.html`);
 }
 
 function disablePastDates() {
